@@ -23,20 +23,19 @@ function App() {
 				const map = new mapboxgl.Map({
 					container: mapContainer.current,
 					style: 'mapbox://styles/mapbox/streets-v11',
-					center: [-83.1319027, 39.985 ],
+					center: [ -83.1319027, 39.985 ],
 					zoom: 11,
-                });
-                
-                var grandadsPizza = new mapboxgl.Marker().setLngLat([-83.1595169, 40.0187752 ])
-                .setPopup(new mapboxgl.Popup().setHTML("<h1>Grandads Pizza (sorta)</h1>"))
-                .addTo(map);
+				});
+
+				var grandadsPizza = new mapboxgl.Marker()
+					.setLngLat([ -83.1595169, 40.0187752 ])
+					.setPopup(new mapboxgl.Popup().setHTML('<h1>Grandads Pizza (sorta)</h1>'))
+					.addTo(map);
 
 				map.on('load', () => {
 					setMap(map);
-                    map.resize();
+					map.resize();
 				});
-
-				
 
 				map.on('move', () => {
 					setCoord({
@@ -46,7 +45,6 @@ function App() {
 					});
 				});
 			};
-
 			if (!map) initMap({ setMap, mapContainer });
 		},
 		[ map ],
